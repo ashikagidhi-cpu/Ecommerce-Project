@@ -123,3 +123,29 @@ Visit **`http://localhost:5000`** in your browser.
 | `POST` | `/api/upload` | Upload image file to local `uploads/` folder |
 | `POST` | `/api/orders` | Record a completed checkout order & line items |
 | `GET` | `/api/orders` | Retrieve past orders |
+| `GET` | `/api/user/profile` | Client portfolio & loyalty points |
+| `PUT` | `/api/user/profile` | Update personal details |
+| `PUT` | `/api/user/measurements` | Update tailoring sizing |
+| `POST` | `/api/promo/validate` | Validate promo codes (`VELORA15`, `FREESHIP`, `WELCOME20`) |
+
+---
+
+## ☁️ Deploying to Vercel
+
+The project includes pre-configured **`vercel.json`** and **`api/index.js`** serverless routing:
+
+### Deploy via Vercel CLI
+```bash
+npm i -g vercel
+vercel
+```
+
+### Deploy via GitHub
+1. Push this repository to GitHub.
+2. In the [Vercel Dashboard](https://vercel.com), click **"Add New Project"** and import the repository.
+3. Keep default settings and click **Deploy**.
+4. Vercel will automatically serve:
+   - Storefront at `https://<your-project>.vercel.app`
+   - User Profile at `https://<your-project>.vercel.app/profile`
+   - Express REST API at `https://<your-project>.vercel.app/api/*`
+

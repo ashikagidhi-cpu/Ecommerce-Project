@@ -8,13 +8,13 @@ const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
 
-// Ensure database module is initialized
+// Ensure database module is initialized & seeded
 require('./database');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Enable Cross-Origin Resource Sharing and JSON Body Parsing
+// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -47,10 +47,14 @@ app.get('/api/health', (req, res) => {
 const productsRouter = require('./routes/products');
 const ordersRouter = require('./routes/orders');
 const uploadRouter = require('./routes/upload');
+const userRouter = require('./routes/user');
+const promoRouter = require('./routes/promo');
 
 app.use('/api/products', productsRouter);
 app.use('/api/orders', ordersRouter);
 app.use('/api/upload', uploadRouter);
+app.use('/api/user', userRouter);
+app.use('/api/promo', promoRouter);
 
 // 5. Fallback route to frontend index.html for Single Page Application navigation
 app.get('*', (req, res) => {
@@ -60,13 +64,19 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(frontendPath, 'index.html'));
 });
 
-// Start Express Server
-app.listen(PORT, () => {
-  console.log(`====================================================`);
-  console.log(`  VÉLORA Atelier Server Running on Port ${PORT}`);
-  console.log(`  Frontend App:     http://localhost:${PORT}`);
-  console.log(`  API Health:       http://localhost:${PORT}/api/health`);
-  console.log(`  Local Uploads:    http://localhost:${PORT}/uploads`);
-  console.log(`  Database:         SQLite3 (backend/database.sqlite)`);
-  console.log(`====================================================`);
-});
+let server;
+if (require.main === module || !process.env.VERCEL) {
+  server = app.listen(PORT, () => {
+    console.log(`====================================================`);
+    console.log(`  VÉLORA Atelier Server Running on Port ${PORT}`);
+    console.log(`  Frontend App:     http://localhost:${PORT}`);
+    console.log(`  API Health:       http://localhost:${PORT}/api/health`);
+    console.log(`  Local Uploads:    http://localhost:${PORT}/uploads`);
+    console.log(`  Database:         SQLite3`);
+    console.log(`====================================================`);
+  });
+}
+
+module.exports = app;
+module.exports.app = app;
+module.exports.server = server;

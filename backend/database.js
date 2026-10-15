@@ -1,12 +1,14 @@
 /**
  * VÉLORA Atelier - SQLite3 Database Connection & Schema Setup
- * Manages database initialization, schema migration, and automatic catalog seeding.
+ * Manages database initialization, schema migration, and automatic catalog & profile seeding.
  */
 
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
-const dbPath = path.join(__dirname, 'database.sqlite');
+const dbPath = process.env.VERCEL
+  ? path.join('/tmp', 'database.sqlite')
+  : path.join(__dirname, 'database.sqlite');
 const db = new sqlite3.Database(dbPath, (err) => {
   if (err) {
     console.error('Failed to connect to SQLite3 database:', err.message);
@@ -15,7 +17,7 @@ const db = new sqlite3.Database(dbPath, (err) => {
   }
 });
 
-// Seed data to automatically populate the database on initial start
+// Full 10-Garment Luxury Catalog for Automatic Seeding
 const SEED_PRODUCTS = [
   {
     id: "vel-001",
@@ -203,6 +205,111 @@ const SEED_PRODUCTS = [
     ])
   },
   {
+    id: "vel-006",
+    name: "Technical Water-Repellent Mac",
+    tagline: "Japanese membrane bonded gabardine shell",
+    category: "outerwear",
+    gender: "men",
+    price: 360,
+    originalPrice: null,
+    rating: 4.9,
+    reviewCount: 31,
+    badge: "NEW",
+    isNew: 1,
+    colors: JSON.stringify([
+      { name: "Storm Charcoal", hex: "#2b2e36" },
+      { name: "Khaki Taupe", hex: "#948b79" }
+    ]),
+    sizes: JSON.stringify(["S", "M", "L", "XL"]),
+    stock: JSON.stringify({ "S": 5, "M": 7, "L": 3, "XL": 2 }),
+    images: JSON.stringify([
+      "https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1000&auto=format&fit=crop"
+    ]),
+    description: "Designed for inclement city weather without sacrificing sartorial elegance. Sealed seams, storm collar with throat latch, and magnetic pocket closures.",
+    specs: JSON.stringify({
+      fabric: "65% Recycled Nylon, 35% Organic Cotton with DWR coating",
+      fit: "Tailored regular fit, hits right above knee",
+      care: "Wipe with damp cloth or professional clean."
+    }),
+    sizeChart: JSON.stringify([
+      { size: "S", chest: "110 cm / 43.3\"", length: "98 cm / 38.5\"", sleeve: "86 cm / 33.8\"" },
+      { size: "M", chest: "116 cm / 45.6\"", length: "100 cm / 39.3\"", sleeve: "88 cm / 34.6\"" },
+      { size: "L", chest: "122 cm / 48.0\"", length: "102 cm / 40.1\"", sleeve: "90 cm / 35.4\"" },
+      { size: "XL", chest: "128 cm / 50.3\"", length: "104 cm / 40.9\"", sleeve: "92 cm / 36.2\"" }
+    ])
+  },
+  {
+    id: "vel-007",
+    name: "Raw Indigo Selvedge Denim",
+    tagline: "14oz Kuroki Japanese shuttle-loom denim",
+    category: "trousers",
+    gender: "men",
+    price: 210,
+    originalPrice: null,
+    rating: 4.8,
+    reviewCount: 68,
+    badge: "BESTSELLER",
+    isNew: 0,
+    colors: JSON.stringify([
+      { name: "Raw Deep Indigo", hex: "#192231" }
+    ]),
+    sizes: JSON.stringify(["S", "M", "L", "XL"]),
+    stock: JSON.stringify({ "S": 4, "M": 8, "L": 6, "XL": 2 }),
+    images: JSON.stringify([
+      "https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1000&auto=format&fit=crop"
+    ]),
+    description: "Woven on vintage 1960s shuttle looms in Okayama, Japan. Features red-line selvedge ticker, copper rivets, and a button fly that breaks in uniquely to your body.",
+    specs: JSON.stringify({
+      fabric: "100% Zimbabwe Long-Staple Cotton (14oz Unwashed)",
+      fit: "Straight leg with subtle taper below knee",
+      care: "Wear for 6 months before first cold soak."
+    }),
+    sizeChart: JSON.stringify([
+      { size: "S", waist: "76 cm / 29.9\"", hip: "98 cm / 38.5\"", inseam: "86 cm / 33.8\"" },
+      { size: "M", waist: "82 cm / 32.2\"", hip: "104 cm / 40.9\"", inseam: "86 cm / 33.8\"" },
+      { size: "L", waist: "88 cm / 34.6\"", hip: "110 cm / 43.3\"", inseam: "86 cm / 33.8\"" },
+      { size: "XL", waist: "94 cm / 37.0\"", hip: "116 cm / 45.6\"", inseam: "86 cm / 33.8\"" }
+    ])
+  },
+  {
+    id: "vel-008",
+    name: "Fine Knit Silk-Cotton Polo",
+    tagline: "Ultra-soft 18-gauge luxury knit with open collar",
+    category: "knitwear",
+    gender: "men",
+    price: 165,
+    originalPrice: 195,
+    rating: 4.7,
+    reviewCount: 39,
+    badge: "SALE -15%",
+    isNew: 0,
+    colors: JSON.stringify([
+      { name: "Warm Terracotta", hex: "#b85d43" },
+      { name: "Cream Ecru", hex: "#eae4d7" },
+      { name: "Midnight Navy", hex: "#161c28" }
+    ]),
+    sizes: JSON.stringify(["S", "M", "L", "XL"]),
+    stock: JSON.stringify({ "S": 3, "M": 7, "L": 5, "XL": 0 }),
+    images: JSON.stringify([
+      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=1000&auto=format&fit=crop"
+    ]),
+    description: "An effortless sartorial staple. Blends mulberry silk with organic combed cotton for breathability, natural sheen, and zero itching against the skin.",
+    specs: JSON.stringify({
+      fabric: "55% Mulberry Silk, 45% Organic Cotton (18 Gauge)",
+      fit: "Tailored slim fit with retro Johnny collar",
+      care: "Hand wash cold, reshape, and dry flat."
+    }),
+    sizeChart: JSON.stringify([
+      { size: "S", chest: "98 cm / 38.5\"", length: "67 cm / 26.3\"", shoulder: "42 cm / 16.5\"" },
+      { size: "M", chest: "104 cm / 40.9\"", length: "69 cm / 27.1\"", shoulder: "44 cm / 17.3\"" },
+      { size: "L", chest: "110 cm / 43.3\"", length: "71 cm / 27.9\"", shoulder: "46 cm / 18.1\"" },
+      { size: "XL", chest: "116 cm / 45.6\"", length: "73 cm / 28.7\"", shoulder: "48 cm / 18.8\"" }
+    ])
+  },
+  {
     id: "vel-009",
     name: "Full-Grain Leather Weekend Tote",
     tagline: "Vegetable-tanned Tuscan leather with brass hardware",
@@ -234,10 +341,46 @@ const SEED_PRODUCTS = [
     sizeChart: JSON.stringify([
       { size: "One Size", dimensions: "44 x 32 x 16 cm (22 Liters volume)" }
     ])
+  },
+  {
+    id: "vel-010",
+    name: "Pure Linen Relaxed Resort Shirt",
+    tagline: "Pre-washed Normandy French flax linen",
+    category: "tops",
+    gender: "women",
+    price: 120,
+    originalPrice: 150,
+    rating: 4.8,
+    reviewCount: 42,
+    badge: "SALE -20%",
+    isNew: 0,
+    colors: JSON.stringify([
+      { name: "Natural Ecru", hex: "#e5ded3" },
+      { name: "Dusty Rose", hex: "#cb9993" },
+      { name: "Sage Mist", hex: "#97a89b" }
+    ]),
+    sizes: JSON.stringify(["XS", "S", "M", "L"]),
+    stock: JSON.stringify({ "XS": 2, "S": 6, "M": 8, "L": 4 }),
+    images: JSON.stringify([
+      "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop"
+    ]),
+    description: "Breezy comfort crafted from high-grade French flax. Becomes softer with each wear, featuring natural mother-of-pearl buttons and relaxed camp collar.",
+    specs: JSON.stringify({
+      fabric: "100% Normandy Flax Linen (170 GSM)",
+      fit: "Relaxed resort silhouette",
+      care: "Gentle machine wash cold, air dry in shade."
+    }),
+    sizeChart: JSON.stringify([
+      { size: "XS", bust: "96 cm / 37.7\"", length: "62 cm / 24.4\"" },
+      { size: "S", bust: "102 cm / 40.1\"", length: "64 cm / 25.1\"" },
+      { size: "M", bust: "108 cm / 42.5\"", length: "66 cm / 25.9\"" },
+      { size: "L", bust: "114 cm / 44.8\"", length: "68 cm / 26.7\"" }
+    ])
   }
 ];
 
-// Initialize database tables and seed if empty
+// Initialize database tables, schema migration and seed
 function initializeDatabase() {
   db.serialize(() => {
     // 1. Create Products Table
@@ -263,9 +406,7 @@ function initializeDatabase() {
         size_chart TEXT,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
       )
-    `, (err) => {
-      if (err) console.error('Error creating products table:', err.message);
-    });
+    `);
 
     // 2. Create Orders Table
     db.run(`
@@ -286,9 +427,7 @@ function initializeDatabase() {
         status TEXT DEFAULT 'Confirmed',
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
       )
-    `, (err) => {
-      if (err) console.error('Error creating orders table:', err.message);
-    });
+    `);
 
     // 3. Create Order Items Table
     db.run(`
@@ -304,11 +443,26 @@ function initializeDatabase() {
         image TEXT,
         FOREIGN KEY (order_id) REFERENCES orders(id)
       )
-    `, (err) => {
-      if (err) console.error('Error creating order_items table:', err.message);
-    });
+    `);
 
-    // 4. Check if products need seeding
+    // 4. Create User Profile Table
+    db.run(`
+      CREATE TABLE IF NOT EXISTS user_profile (
+        id TEXT PRIMARY KEY,
+        first_name TEXT NOT NULL,
+        last_name TEXT NOT NULL,
+        email TEXT NOT NULL,
+        phone TEXT,
+        avatar TEXT,
+        tier TEXT DEFAULT 'VIP PRIVÉ',
+        points INTEGER DEFAULT 2450,
+        measurements TEXT,
+        addresses TEXT,
+        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+
+    // 5. Seed Products if empty
     db.get('SELECT COUNT(*) as count FROM products', (err, row) => {
       if (!err && row && row.count === 0) {
         console.log('Seeding initial luxury catalog into SQLite3 database...');
@@ -330,6 +484,67 @@ function initializeDatabase() {
 
         insertStmt.finalize(() => {
           console.log(`Seeded ${SEED_PRODUCTS.length} products successfully.`);
+        });
+      }
+    });
+
+    // 6. Seed Default User Profile if empty
+    db.get('SELECT COUNT(*) as count FROM user_profile', (err, row) => {
+      if (!err && row && row.count === 0) {
+        const defaultMeasurements = JSON.stringify({
+          topSize: 'M',
+          waistSize: '30',
+          fitType: 'oversized',
+          chest: 102,
+          waist: 78,
+          hips: 98,
+          height: 178
+        });
+
+        const defaultAddresses = JSON.stringify([
+          {
+            id: 'addr-1',
+            type: 'PRIMARY RESIDENCE',
+            name: 'Eleanor Vance',
+            street: '142 Mercer Street, Suite 502',
+            city: 'New York',
+            postal: '10012',
+            country: 'United States',
+            phone: '+1 (212) 555-0198'
+          }
+        ]);
+
+        db.run(`
+          INSERT INTO user_profile (id, first_name, last_name, email, phone, avatar, tier, points, measurements, addresses)
+          VALUES ('client_default', 'Eleanor', 'Vance', 'eleanor.vance@atelier.com', '+1 (212) 555-0198',
+                  'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop',
+                  'VIP PRIVÉ', 2450, ?, ?)
+        `, [defaultMeasurements, defaultAddresses]);
+      }
+    });
+
+    // 7. Seed Initial Order if empty
+    db.get('SELECT COUNT(*) as count FROM orders', (err, row) => {
+      if (!err && row && row.count === 0) {
+        const initialOrderId = 'ORD-948120';
+        db.run(`
+          INSERT INTO orders (
+            id, customer_name, customer_email, customer_address, customer_city,
+            customer_postal, customer_country, shipping_method, subtotal, discount,
+            shipping_cost, total, promo_code, status
+          ) VALUES (?, 'Eleanor Vance', 'eleanor.vance@atelier.com', '142 Mercer Street, Suite 502',
+                    'New York', '10012', 'United States', 'White-Glove Express Air', 515, 0, 0, 515, null, 'In Transit')
+        `, [initialOrderId], function() {
+          db.run(`
+            INSERT INTO order_items (order_id, product_id, product_name, size, color, price, quantity, image)
+            VALUES (?, 'vel-001', 'Architectural Wool Overcoat', 'M', 'Onyx Black', 380, 1,
+                    'https://images.unsplash.com/photo-1544022613-e87ca75a784a?q=80&w=1000')
+          `, [initialOrderId]);
+          db.run(`
+            INSERT INTO order_items (order_id, product_id, product_name, size, color, price, quantity, image)
+            VALUES (?, 'vel-002', 'Heavyweight Boxy Hoodie', 'M', 'Sand Dune', 135, 1,
+                    'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1000')
+          `, [initialOrderId]);
         });
       }
     });
