@@ -1,0 +1,19 @@
+{
+  "name": "velora-atelier-ecommerce",
+  "version": "1.0.0",
+  "description": "VÉLORA Atelier - Decoupled Luxury Apparel E-Commerce Web App",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7",
+    "cors": "^2.8.5",
+    "multer": "^1.4.5-lts.1"
+  },
+  "keywords": ["ecommerce", "clothing", "express", "sqlite3", "decoupled"],
+  "author": "VÉLORA Atelier",
+  "license": "MIT"
+}

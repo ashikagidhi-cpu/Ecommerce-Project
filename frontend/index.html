@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VÉLORA Atelier | Contemporary Luxury & Minimalist Essentials</title>
+  <meta name="description" content="Discover VÉLORA Atelier: curated luxury apparel, architectural tailoring, sustainable knitwear, and timeless wardrobe essentials. Free express global delivery.">
+
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Bespoke Luxury Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 1. ANNOUNCEMENT BAR TICKER -->
+  <aside class="announcement-bar text-center">
+    <div class="container d-flex justify-content-between align-items-center">
+      <span class="d-none d-md-inline text-muted fs-8">AUTUMN / WINTER '26 EDITORIAL</span>
+      <div class="ticker-item mx-auto">
+        <i class="bi bi-stars text-warning"></i>
+        <span>Complimentary Express Worldwide Delivery on all orders over $150 • Use Code: <strong class="text-white">VELORA15</strong></span>
+      </div>
+      <div class="d-none d-md-flex align-items-center gap-3">
+        <span class="fs-8">30-Day Returns</span>
+        <span class="fs-8">Ethical Craft</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 2. STICKY GLASSMORPHIC NAVIGATION HEADER -->
+  <header class="navbar-custom">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between gap-3">
+        
+        <!-- Mobile Offcanvas Menu Button -->
+        <button class="nav-action-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMobileNav" aria-label="Open Navigation">
+          <i class="bi bi-list fs-5"></i>
+        </button>
+
+        <!-- Brand Logo -->
+        <a href="#" class="navbar-brand-logo">
+          VÉLORA <span>ATELIER</span>
+        </a>
+
+        <!-- Desktop Navigation Categories -->
+        <nav class="d-none d-lg-flex align-items-center gap-1">
+          <a href="#" class="nav-link-custom active nav-cat-link" data-category="all">All Garments</a>
+          <a href="#" class="nav-link-custom nav-cat-link" data-category="outerwear">Outerwear</a>
+          <a href="#" class="nav-link-custom nav-cat-link" data-category="tops">Tops & Shirts</a>
+          <a href="#" class="nav-link-custom nav-cat-link" data-category="knitwear">Knitwear</a>
+          <a href="#" class="nav-link-custom nav-cat-link" data-category="trousers">Trousers</a>
+          <a href="#" class="nav-link-custom nav-cat-link" data-category="accessories">Accessories</a>
+        </nav>
+
+        <!-- Header Actions: Search, Currency, Theme, Wishlist, Cart -->
+        <div class="d-flex align-items-center gap-2">
+          
+          <!-- Live Search Input -->
+          <div class="search-input-wrapper d-none d-md-block">
+            <i class="bi bi-search search-icon-inside"></i>
+            <input type="text" id="mainSearchInput" class="search-input-custom" placeholder="Search cashmere, wool, trench..." autocomplete="off">
+            <button type="button" id="searchClearBtn" class="search-clear-btn" aria-label="Clear Search">
+              <i class="bi bi-x-circle-fill"></i>
+            </button>
+          </div>
+
+          <!-- Currency Selector -->
+          <div class="d-none d-sm-block">
+            <select id="currencySelector" class="form-select form-select-sm border-subtle bg-surface text-main rounded-pill py-1 px-3 fs-8 fw-semibold" style="cursor: pointer;">
+              <option value="USD">USD ($)</option>
+              <option value="EUR">EUR (€)</option>
+              <option value="GBP">GBP (£)</option>
+              <option value="INR">INR (₹)</option>
+            </select>
+          </div>
+
+          <!-- Add Garment Modal Trigger (Atelier Studio) -->
+          <button class="btn btn-sm btn-outline-dark rounded-pill px-3 py-1 d-none d-sm-inline-flex align-items-center gap-1 fs-8 fw-semibold" data-bs-toggle="modal" data-bs-target="#modalAddGarment" title="Add New Garment to Catalog">
+            <i class="bi bi-plus-lg"></i> Add Garment
+          </button>
+
+          <!-- Dark / Light Theme Toggle -->
+          <button id="btnThemeToggle" class="nav-action-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+
+          <!-- Wishlist Trigger Button -->
+          <button class="nav-action-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWishlist" aria-label="View Wishlist" title="Curated Wishlist">
+            <i class="bi bi-heart"></i>
+            <span class="nav-badge-count wishlist-badge-count" style="display: none;">0</span>
+          </button>
+
+          <!-- Shopping Cart Trigger Button -->
+          <button class="nav-action-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-label="View Bag" title="Shopping Bag">
+            <i class="bi bi-bag"></i>
+            <span class="nav-badge-count cart-badge-count" style="display: none;">0</span>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- Mobile Search Bar (Only visible on small screens) -->
+      <div class="d-md-none mt-3">
+        <div class="position-relative">
+          <i class="bi bi-search search-icon-inside"></i>
+          <input type="text" id="mobileSearchInput" class="search-input-custom w-100" placeholder="Search garments, fabrics, styles...">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container">
+    
+    <!-- 3. EDITORIAL HERO BANNER -->
+    <section class="hero-editorial">
+      <div class="hero-bg-overlay"></div>
+      <div class="hero-content">
+        <span class="hero-badge">
+          <i class="bi bi-lightning-charge-fill text-warning"></i> Autumn Drop 04 / 2026
+        </span>
+        <h1 class="hero-title">Architectural Silhouettes & Tactile Luxury</h1>
+        <p class="hero-description">
+          Timeless wardrobe investments crafted from double-faced virgin wool, 460 GSM combed French terry, and grade-A pure cashmere. Made to outlast trends.
+        </p>
+        <div class="hero-actions">
+          <a href="#storefront" class="btn btn-velora-primary">
+            Explore Collection <i class="bi bi-arrow-down-short fs-5"></i>
+          </a>
+          <button class="btn btn-velora-outline" onclick="window.UI.showToast('Lookbook gallery loaded for Autumn/Winter drop.', 'info')">
+            <i class="bi bi-journal-album"></i> Digital Lookbook
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. VALUE PROPOSITION STRIP -->
+    <section class="features-strip">
+      <div class="row g-4 text-start">
+        <div class="col-6 col-md-3">
+          <div class="feature-item">
+            <div class="feature-icon-box"><i class="bi bi-box-seam"></i></div>
+            <div>
+              <div class="feature-title">Express Delivery</div>
+              <p class="feature-subtitle">Free globally over $150</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="feature-item">
+            <div class="feature-icon-box"><i class="bi bi-arrow-repeat"></i></div>
+            <div>
+              <div class="feature-title">30-Day Returns</div>
+              <p class="feature-subtitle">Complimentary courier pickup</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="feature-item">
+            <div class="feature-icon-box"><i class="bi bi-shield-check"></i></div>
+            <div>
+              <div class="feature-title">100% Certified</div>
+              <p class="feature-subtitle">Organic GOTS & Italian wool</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="feature-item">
+            <div class="feature-icon-box"><i class="bi bi-lock"></i></div>
+            <div>
+              <div class="feature-title">Secured Checkout</div>
+              <p class="feature-subtitle">Encrypted tokenization</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. STOREFRONT & CATALOG SECTION -->
+    <section id="storefront" class="pt-2">
+      
+      <!-- Horizontal Category Pills Bar -->
+      <div class="d-flex align-items-center justify-content-between mb-4">
+        <div class="category-pills-bar">
+          <button class="cat-pill active" data-category="all">All Styles</button>
+          <button class="cat-pill" data-category="outerwear">Outerwear</button>
+          <button class="cat-pill" data-category="tops">Tops & Shirts</button>
+          <button class="cat-pill" data-category="knitwear">Cashmere & Knitwear</button>
+          <button class="cat-pill" data-category="trousers">Tailored Trousers</button>
+          <button class="cat-pill" data-category="accessories">Accessories</button>
+        </div>
+
+        <!-- Mobile Filter Drawer Trigger -->
+        <button class="btn btn-sm btn-outline-dark d-lg-none rounded-pill px-3 py-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilters">
+          <i class="bi bi-sliders me-1"></i> Filters
+        </button>
+      </div>
+
+      <!-- Main Two-Column Layout (Filters Sidebar + Products Grid) -->
+      <div class="row g-4">
+        
+        <!-- DESKTOP FILTERS SIDEBAR (Col-3) -->
+        <aside class="col-lg-3 d-none d-lg-block">
+          <div class="filter-card">
+            
+            <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-3">
+              <h5 class="m-0 fs-6 fw-bold">Refine Wardrobe</h5>
+              <button id="btnResetFilters" class="btn btn-link p-0 text-decoration-none fs-8 text-muted">
+                Reset All
+              </button>
+            </div>
+
+            <!-- Gender Filter -->
+            <div class="mb-4">
+              <div class="filter-group-title">Department</div>
+              <div class="d-flex flex-column gap-2 fs-7">
+                <label class="form-check-label d-flex align-items-center gap-2 cursor-pointer">
+                  <input class="form-check-input mt-0" type="radio" name="filterGender" value="all" checked> All Departments
+                </label>
+                <label class="form-check-label d-flex align-items-center gap-2 cursor-pointer">
+                  <input class="form-check-input mt-0" type="radio" name="filterGender" value="men"> Men's Edit
+                </label>
+                <label class="form-check-label d-flex align-items-center gap-2 cursor-pointer">
+                  <input class="form-check-input mt-0" type="radio" name="filterGender" value="women"> Women's Edit
+                </label>
+                <label class="form-check-label d-flex align-items-center gap-2 cursor-pointer">
+                  <input class="form-check-input mt-0" type="radio" name="filterGender" value="unisex"> Gender Neutral
+                </label>
+              </div>
+            </div>
+
+            <!-- Size Filter -->
+            <div class="mb-4">
+              <div class="filter-group-title">Size</div>
+              <div class="size-chips-list">
+                <button type="button" class="size-chip-btn filter-size-btn" data-size="XS">XS</button>
+                <button type="button" class="size-chip-btn filter-size-btn" data-size="S">S</button>
+                <button type="button" class="size-chip-btn filter-size-btn" data-size="M">M</button>
+                <button type="button" class="size-chip-btn filter-size-btn" data-size="L">L</button>
+                <button type="button" class="size-chip-btn filter-size-btn" data-size="XL">XL</button>
+              </div>
+            </div>
+
+            <!-- Color Palette Filter -->
+            <div class="mb-4">
+              <div class="filter-group-title">Color Palette</div>
+              <div class="color-swatch-list">
+                <button type="button" class="color-swatch-item filter-color-swatch" style="background-color: #171717;" data-color="Black" title="Onyx Black"></button>
+                <button type="button" class="color-swatch-item filter-color-swatch" style="background-color: #eae4d7;" data-color="White" title="Cream / White"></button>
+                <button type="button" class="color-swatch-item filter-color-swatch" style="background-color: #b59468;" data-color="Camel" title="Warm Camel"></button>
+                <button type="button" class="color-swatch-item filter-color-swatch" style="background-color: #707865;" data-color="Olive" title="Sage Olive"></button>
+                <button type="button" class="color-swatch-item filter-color-swatch" style="background-color: #1c2333;" data-color="Navy" title="Midnight Navy"></button>
+                <button type="button" class="color-swatch-item filter-color-swatch" style="background-color: #b85d43;" data-color="Terracotta" title="Terracotta"></button>
+              </div>
+            </div>
+
+            <!-- Price Range Filter -->
+            <div class="mb-4">
+              <div class="filter-group-title">
+                <span>Max Price</span>
+                <span id="priceRangeDisplay" class="fw-bold text-dark">$500</span>
+              </div>
+              <input type="range" class="form-range price-slider-custom" id="priceRangeSlider" min="50" max="500" step="10" value="500">
+              <div class="d-flex justify-content-between fs-8 text-muted mt-1">
+                <span>$50</span>
+                <span>$500+</span>
+              </div>
+            </div>
+
+            <!-- Stock Status -->
+            <div class="mb-2 pt-2 border-top">
+              <div class="form-check form-switch fs-7">
+                <input class="form-check-input cursor-pointer" type="checkbox" id="filterInStock">
+                <label class="form-check-label cursor-pointer fw-500" for="filterInStock">In Stock Only</label>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
+        <!-- PRODUCT LISTINGS (Col-9) -->
+        <main class="col-lg-9">
+          
+          <!-- Listings Toolbar: Count badge & Sort Selector -->
+          <div class="d-flex align-items-center justify-content-between mb-4 pb-2 border-bottom">
+            <div>
+              <span id="productsCountBadge" class="badge bg-secondary text-dark rounded-pill px-3 py-2 fs-7 fw-semibold">
+                Loading Garments...
+              </span>
+            </div>
+
+            <div class="d-flex align-items-center gap-2">
+              <label for="sortSelect" class="fs-8 text-muted text-nowrap d-none d-sm-inline">Sort by:</label>
+              <select id="sortSelect" class="form-select form-select-sm border-subtle bg-surface text-main rounded-pill px-3 py-1 fs-7" style="cursor: pointer; min-width: 170px;">
+                <option value="featured">Featured Curations</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating-desc">Highest Customer Rated</option>
+                <option value="newest">New Arrivals First</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- The Responsive Product Grid -->
+          <div id="productsGrid" class="row g-3 g-md-4">
+            <!-- Rendered dynamically by UI.renderProducts() -->
+          </div>
+
+        </main>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 6. EDITORIAL FOOTER -->
+  <footer class="footer-custom">
+    <div class="container">
+      <div class="row g-5">
+        
+        <!-- Brand Narrative -->
+        <div class="col-12 col-md-4">
+          <div class="footer-brand">VÉLORA ATELIER</div>
+          <p class="text-muted fs-7 pe-md-4 mb-4">
+            Crafting minimalist silhouettes with uncompromising textiles. Built upon sustainable practices, ethical ateliers in Florence and Okayama, and timeless aesthetics.
+          </p>
+          <div class="d-flex gap-3 fs-5 text-muted">
+            <a href="#" aria-label="Instagram" class="text-muted"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Pinterest" class="text-muted"><i class="bi bi-pinterest"></i></a>
+            <a href="#" aria-label="Twitter / X" class="text-muted"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+
+        <!-- Collections Links -->
+        <div class="col-6 col-md-2">
+          <h6 class="footer-heading">Collections</h6>
+          <ul class="footer-link-list">
+            <li><a href="#" class="nav-cat-link" data-category="outerwear">Wool Overcoats</a></li>
+            <li><a href="#" class="nav-cat-link" data-category="knitwear">Pure Cashmere</a></li>
+            <li><a href="#" class="nav-cat-link" data-category="tops">Heavyweight Hoodies</a></li>
+            <li><a href="#" class="nav-cat-link" data-category="trousers">Pleated Trousers</a></li>
+            <li><a href="#" class="nav-cat-link" data-category="accessories">Leather Goods</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Care -->
+        <div class="col-6 col-md-2">
+          <h6 class="footer-heading">Customer Care</h6>
+          <ul class="footer-link-list">
+            <li><a href="#" onclick="window.UI.openSizeGuide(); return false;">Sizing & Measurement</a></li>
+            <li><a href="#" onclick="window.UI.showToast('Complimentary 30-day global returns accepted on unwashed items.', 'info'); return false;">Shipping & Returns</a></li>
+            <li><a href="#" onclick="window.UI.showToast('GOTS Certified Organic & Responsible Wool Standard verified.', 'info'); return false;">Sustainability Report</a></li>
+            <li><a href="#" onclick="window.UI.showToast('Live concierge chat available Monday-Friday 9am-6pm EST.', 'info'); return false;">Atelier Concierge</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="col-12 col-md-4">
+          <h6 class="footer-heading">Private Atelier Drops</h6>
+          <p class="text-muted fs-7 mb-3">
+            Subscribe to receive exclusive early access to seasonal limited drops and archive sales.
+          </p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); window.UI.showToast('Welcome to the Atelier. Check your inbox for your 15% VIP welcome code.', 'success'); this.reset();">
+            <input type="email" class="newsletter-input" placeholder="Enter your email address..." required>
+            <button type="submit" class="newsletter-submit-btn">Join</button>
+          </form>
+          <div class="fs-8 text-muted mt-2">
+            By subscribing you agree to our Terms of Service & Privacy Policy.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar: Copyright & Payment Badges -->
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between pt-4 mt-5 border-top border-subtle fs-8 text-muted">
+        <div>© 2026 VÉLORA Atelier Inc. All rights reserved. Decoupled Architecture Edition.</div>
+        <div class="d-flex align-items-center gap-3 mt-3 mt-md-0 fs-6">
+          <i class="bi bi-credit-card-2-front" title="Visa / Mastercard"></i>
+          <i class="bi bi-apple" title="Apple Pay"></i>
+          <i class="bi bi-google" title="Google Pay"></i>
+          <i class="bi bi-shield-check" title="256-bit SSL Encrypted"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- MODALS & DRAWERS CONTAINER                                                -->
+  <!-- ========================================================================= -->
+
+  <!-- 1. QUICK VIEW PRODUCT MODAL -->
+  <div class="modal fade modal-custom" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0">
+        
+        <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
+          <i class="bi bi-x-lg"></i>
+        </button>
+
+        <div class="modal-body p-4 p-md-5">
+          <div class="row g-4">
+            
+            <!-- Gallery Thumbnails & Main Preview -->
+            <div class="col-12 col-md-6">
+              <div class="modal-gallery-main">
+                <img id="quickViewMainImg" src="" alt="Garment presentation">
+              </div>
+              <div id="quickViewThumbs" class="modal-thumbnails"></div>
+            </div>
+
+            <!-- Product Deep Dive Details -->
+            <div class="col-12 col-md-6 d-flex flex-direction-column">
+              <div class="fs-8 text-uppercase fw-bold text-muted mb-1" id="quickViewCategory">Category</div>
+              <h3 class="font-editorial mb-2" id="quickViewModalLabel">Product Title</h3>
+              
+              <!-- Rating and verified count -->
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="text-warning fs-7">
+                  <i class="bi bi-star-fill"></i>
+                  <strong class="text-dark ms-1" id="quickViewRating">4.9</strong>
+                </div>
+                <span class="fs-8 text-muted" id="quickViewReviews">(45 reviews)</span>
+              </div>
+
+              <!-- Price Row -->
+              <div class="d-flex align-items-baseline gap-2 mb-3">
+                <span class="fs-3 fw-bold text-main" id="quickViewPrice">$0.00</span>
+                <span class="fs-6 text-muted text-decoration-line-through d-none" id="quickViewOriginalPrice">$0.00</span>
+              </div>
+
+              <!-- Stock Alert Pill -->
+              <div id="quickViewStockAlert" class="stock-alert-pill stock-in">
+                <i class="bi bi-check-circle-fill"></i> In Stock & Ready to Ship
+              </div>
+
+              <!-- Description -->
+              <p class="fs-7 text-muted mb-4" id="quickViewDescription">
+                Garment description...
+              </p>
+
+              <!-- Color Selection -->
+              <div class="mb-3">
+                <div class="d-flex justify-content-between fs-8 fw-semibold text-uppercase mb-2">
+                  <span>Color: <strong id="quickViewSelectedColorName" class="text-dark">Default</strong></span>
+                </div>
+                <div id="quickViewColors" class="color-swatch-list"></div>
+              </div>
+
+              <!-- Size Selection & Size Guide Trigger -->
+              <div class="mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-2 fs-8 fw-semibold text-uppercase">
+                  <span>Select Size:</span>
+                  <button type="button" id="btnOpenSizeGuide" class="btn btn-link p-0 text-decoration-underline text-muted fs-8">
+                    <i class="bi bi-rulers me-1"></i> Size Guide
+                  </button>
+                </div>
+                <div id="quickViewSizes" class="size-chips-list"></div>
+              </div>
+
+              <!-- Quantity & Add to Bag -->
+              <div class="d-flex align-items-center gap-3 mb-4">
+                <div class="qty-stepper">
+                  <button type="button" class="qty-btn" id="btnQuickViewQtyMinus">-</button>
+                  <input type="text" class="qty-value" id="quickViewQty" value="1" readonly>
+                  <button type="button" class="qty-btn" id="btnQuickViewQtyPlus">+</button>
+                </div>
+
+                <button type="button" id="btnQuickViewAdd" class="btn btn-velora-primary flex-grow-1">
+                  <i class="bi bi-bag-plus"></i> Add to Bag
+                </button>
+              </div>
+
+              <!-- Fabric & Care Accordion -->
+              <div class="accordion accordion-flush mt-auto border-top pt-2" id="quickViewSpecsAccordion">
+                <div class="accordion-item bg-transparent">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed px-0 py-2 fs-8 fw-semibold bg-transparent shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFabric">
+                      <i class="bi bi-patch-check me-2 text-warning"></i> Textile & Silhouette
+                    </button>
+                  </h2>
+                  <div id="collapseFabric" class="accordion-collapse collapse" data-bs-parent="#quickViewSpecsAccordion">
+                    <div class="accordion-body px-0 py-2 fs-8 text-muted">
+                      <div><strong>Composition:</strong> <span id="quickViewFabric">-</span></div>
+                      <div class="mt-1"><strong>Fit:</strong> <span id="quickViewFit">-</span></div>
+                      <div class="mt-1"><strong>Care:</strong> <span id="quickViewCare">-</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. INTERACTIVE SIZE GUIDE MODAL -->
+  <div class="modal fade" id="sizeGuideModal" tabindex="-1" aria-labelledby="sizeGuideModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 border-subtle">
+        <div class="modal-header border-bottom">
+          <h5 class="modal-title font-editorial" id="sizeGuideModalLabel"><i class="bi bi-rulers me-2"></i> Garment Measurement Guide</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <p class="fs-8 text-muted mb-3">All measurements are tailored with standard ease allowance. Compare with your favorite existing garment.</p>
+          <div class="table-responsive">
+            <table class="table table-sm table-hover align-middle fs-8">
+              <thead class="table-light">
+                <tr id="sizeGuideHeaders">
+                  <th>SIZE</th>
+                  <th>CHEST / BUST</th>
+                  <th>LENGTH</th>
+                  <th>SHOULDER</th>
+                </tr>
+              </thead>
+              <tbody id="sizeGuideTableBody">
+                <!-- Injected dynamically -->
+              </tbody>
+            </table>
+          </div>
+          <div class="p-3 bg-secondary rounded-3 fs-8 text-muted mt-3">
+            <i class="bi bi-info-circle me-1"></i> Need bespoke sizing advice? Our Atelier Concierge provides live consultation.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. SLIDE-OVER OFFCANVAS CART DRAWER -->
+  <div class="offcanvas offcanvas-end offcanvas-custom" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+    
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title font-editorial fs-5" id="offcanvasCartLabel">
+        Shopping Bag (<span class="cart-badge-count">0</span>)
+      </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <!-- Free Shipping Progress Tracker -->
+    <div class="free-shipping-tracker">
+      <div id="freeShipRemainingText" class="fs-8">
+        Add <strong>$150.00</strong> more to unlock <strong>Free Express Delivery</strong>.
+      </div>
+      <div class="progress-shipping">
+        <div id="freeShipProgressFill" class="progress-bar-fill"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items Scroll List -->
+    <div class="offcanvas-body p-0">
+      
+      <!-- Empty Bag State -->
+      <div id="cartDrawerEmpty" class="text-center py-5 px-4 d-none">
+        <i class="bi bi-bag-x fs-1 text-muted mb-3 d-block"></i>
+        <h5 class="font-editorial mb-2">Your Bag is Empty</h5>
+        <p class="text-muted fs-7 mb-4">Discover our curated architectural silhouettes and essentials.</p>
+        <button class="btn btn-velora-primary" data-bs-dismiss="offcanvas">
+          Explore Garments
+        </button>
+      </div>
+
+      <!-- Filled items container -->
+      <div id="cartDrawerItems" class="cart-items-scroll"></div>
+
+    </div>
+
+    <!-- Cart Drawer Summary & Checkout CTA -->
+    <div id="cartDrawerFooterSummary" class="cart-drawer-footer">
+      
+      <!-- Promo Voucher Input -->
+      <div class="coupon-input-group">
+        <input type="text" id="cartPromoInput" class="coupon-input" placeholder="Promo code (e.g. VELORA15)" autocomplete="off">
+        <button type="button" id="btnApplyPromo" class="btn btn-sm btn-dark rounded-pill px-3">Apply</button>
+      </div>
+
+      <!-- Cost Breakdown -->
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotalAmount">$0.00</span>
+      </div>
+      <div class="summary-row d-none text-success" id="cartDiscountRow">
+        <span>Voucher Discount</span>
+        <span id="cartDiscountAmount">-$0.00</span>
+      </div>
+      <div class="summary-row">
+        <span>Estimated Delivery</span>
+        <span id="cartShippingAmount">$15.00</span>
+      </div>
+      <div class="summary-row total-row">
+        <span>Total</span>
+        <span id="cartTotalAmount">$0.00</span>
+      </div>
+
+      <!-- Checkout Button -->
+      <button id="btnProceedToCheckout" class="btn btn-velora-primary w-100 mt-3 py-3">
+        Proceed to Checkout <i class="bi bi-arrow-right ms-2"></i>
+      </button>
+
+      <div class="text-center fs-8 text-muted mt-2">
+        <i class="bi bi-shield-lock me-1"></i> 256-Bit SSL Encrypted & Decoupled Architecture
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. SLIDE-OVER OFFCANVAS WISHLIST DRAWER -->
+  <div class="offcanvas offcanvas-end offcanvas-custom" tabindex="-1" id="offcanvasWishlist" aria-labelledby="offcanvasWishlistLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title font-editorial fs-5" id="offcanvasWishlistLabel">
+        Saved Wishlist (<span class="wishlist-badge-count">0</span>)
+      </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      
+      <!-- Wishlist Empty State -->
+      <div id="wishlistEmpty" class="text-center py-5 px-4 d-none">
+        <i class="bi bi-heart fs-1 text-muted mb-3 d-block"></i>
+        <h5 class="font-editorial mb-2">No Saved Styles Yet</h5>
+        <p class="text-muted fs-7 mb-4">Click the heart icon on any garment card to curate your personal wardrobe.</p>
+        <button class="btn btn-velora-primary" data-bs-dismiss="offcanvas">
+          Browse Catalog
+        </button>
+      </div>
+
+      <!-- Wishlist Items Container -->
+      <div id="wishlistDrawerItems"></div>
+
+    </div>
+  </div>
+
+  <!-- 5. MULTI-STEP CHECKOUT MODAL -->
+  <div class="modal fade modal-custom" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0">
+        
+        <div class="modal-header border-bottom px-4 py-3">
+          <h5 class="modal-title font-editorial fs-5" id="checkoutModalLabel">
+            <i class="bi bi-bag-check me-2 text-warning"></i> Express Checkout
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body p-4 p-md-5">
+          
+          <!-- Stepper Header -->
+          <div class="checkout-stepper-header">
+            <div id="checkoutStepIndicator1" class="checkout-step-indicator active">
+              <span class="step-num-circle">1</span>
+              <span class="d-none d-sm-inline">Shipping</span>
+            </div>
+            <div id="checkoutStepIndicator2" class="checkout-step-indicator">
+              <span class="step-num-circle">2</span>
+              <span class="d-none d-sm-inline">Delivery</span>
+            </div>
+            <div id="checkoutStepIndicator3" class="checkout-step-indicator">
+              <span class="step-num-circle">3</span>
+              <span class="d-none d-sm-inline">Payment</span>
+            </div>
+          </div>
+
+          <!-- STEP 1: SHIPPING ADDRESS -->
+          <div id="checkoutStepPanel1">
+            <h6 class="fw-bold mb-3">Recipient & Delivery Address</h6>
+            <form id="checkoutShippingForm" class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label fs-8 fw-semibold">Full Name *</label>
+                <input type="text" id="checkoutName" class="form-control form-control-sm rounded-3" placeholder="Jane Doe" required value="Eleanor Vance">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fs-8 fw-semibold">Email Address *</label>
+                <input type="email" id="checkoutEmail" class="form-control form-control-sm rounded-3" placeholder="jane@example.com" required value="eleanor.vance@atelier.com">
+              </div>
+              <div class="col-12">
+                <label class="form-label fs-8 fw-semibold">Street Address *</label>
+                <input type="text" id="checkoutAddress" class="form-control form-control-sm rounded-3" placeholder="742 Evergreen Terrace, Apt 4B" required value="142 Mercer Street, Suite 502">
+              </div>
+              <div class="col-md-5">
+                <label class="form-label fs-8 fw-semibold">City *</label>
+                <input type="text" id="checkoutCity" class="form-control form-control-sm rounded-3" placeholder="New York" required value="New York">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label fs-8 fw-semibold">Postal Code *</label>
+                <input type="text" id="checkoutPostal" class="form-control form-control-sm rounded-3" placeholder="10012" required value="10012">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fs-8 fw-semibold">Country *</label>
+                <select id="checkoutCountry" class="form-select form-select-sm rounded-3" required>
+                  <option value="United States">United States</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="France">France</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Canada">Canada</option>
+                  <option value="India">India</option>
+                </select>
+              </div>
+            </form>
+          </div>
+
+          <!-- STEP 2: DELIVERY SPEED -->
+          <div id="checkoutStepPanel2" class="d-none">
+            <h6 class="fw-bold mb-3">Select Shipping Method</h6>
+            <div class="d-flex flex-column gap-3">
+              <label class="p-3 border rounded-3 d-flex align-items-center justify-content-between cursor-pointer hover-bg-secondary">
+                <div class="d-flex align-items-center gap-3">
+                  <input type="radio" name="shippingMethod" value="standard" checked class="form-check-input mt-0">
+                  <div>
+                    <div class="fw-bold fs-7">Standard Courier Delivery</div>
+                    <div class="text-muted fs-8">Delivered in 3-5 business days with live tracking</div>
+                  </div>
+                </div>
+                <div class="fw-bold text-success fs-7">FREE</div>
+              </label>
+
+              <label class="p-3 border rounded-3 d-flex align-items-center justify-content-between cursor-pointer hover-bg-secondary">
+                <div class="d-flex align-items-center gap-3">
+                  <input type="radio" name="shippingMethod" value="express" class="form-check-input mt-0">
+                  <div>
+                    <div class="fw-bold fs-7">White-Glove Express Air</div>
+                    <div class="text-muted fs-8">Delivered within 24-48 hours with signature requirement</div>
+                  </div>
+                </div>
+                <div class="fw-bold fs-7">+$15.00</div>
+              </label>
+            </div>
+          </div>
+
+          <!-- STEP 3: PAYMENT METHOD -->
+          <div id="checkoutStepPanel3" class="d-none">
+            <h6 class="fw-bold mb-3">Payment Information</h6>
+            
+            <!-- Realistic Card Preview -->
+            <div class="payment-card-preview">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="card-chip"></div>
+                <div class="fs-6 fw-bold tracking-widest">VÉLORA</div>
+              </div>
+              <div class="card-number-display" id="cardPreviewNumber">•••• •••• •••• 4242</div>
+              <div class="card-holder-row">
+                <div>
+                  <div class="fs-9 opacity-50">CARDHOLDER</div>
+                  <div id="cardPreviewHolder" class="fw-bold">ELEANOR VANCE</div>
+                </div>
+                <div>
+                  <div class="fs-9 opacity-50">EXPIRES</div>
+                  <div id="cardPreviewExpiry" class="fw-bold">12/28</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Payment Form -->
+            <form id="checkoutPaymentForm" class="row g-3">
+              <div class="col-12">
+                <label class="form-label fs-8 fw-semibold">Card Number *</label>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-text"><i class="bi bi-credit-card"></i></span>
+                  <input type="text" id="checkoutCardNumber" class="form-control" placeholder="4242 4242 4242 4242" maxlength="19" required value="4242 4242 4242 4242">
+                </div>
+              </div>
+              <div class="col-md-7">
+                <label class="form-label fs-8 fw-semibold">Cardholder Name *</label>
+                <input type="text" id="checkoutCardName" class="form-control form-control-sm rounded-3" placeholder="Name on card" required value="Eleanor Vance">
+              </div>
+              <div class="col-md-3 col-6">
+                <label class="form-label fs-8 fw-semibold">Expires *</label>
+                <input type="text" id="checkoutCardExp" class="form-control form-control-sm rounded-3" placeholder="MM/YY" maxlength="5" required value="12/28">
+              </div>
+              <div class="col-md-2 col-6">
+                <label class="form-label fs-8 fw-semibold">CVV *</label>
+                <input type="password" id="checkoutCardCvv" class="form-control form-control-sm rounded-3" placeholder="•••" maxlength="4" required value="888">
+              </div>
+            </form>
+
+            <!-- Order Review List inside Checkout -->
+            <div class="mt-4 pt-3 border-top">
+              <div class="fw-bold fs-7 mb-2">Order Items Preview:</div>
+              <div id="checkoutReviewItemsList" class="max-h-150 overflow-y-auto mb-2"></div>
+              <div class="d-flex justify-content-between fw-bold fs-6 pt-2 border-top">
+                <span>Final Order Amount:</span>
+                <span id="checkoutSummaryTotal" class="text-dark">$0.00</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer border-top px-4 py-3 d-flex justify-content-between">
+          <button type="button" id="btnCheckoutBack" class="btn btn-outline-secondary btn-sm rounded-pill px-3" style="display: none;">
+            <i class="bi bi-arrow-left me-1"></i> Back
+          </button>
+          <div class="ms-auto d-flex gap-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" id="btnCheckoutNext" class="btn btn-velora-primary btn-sm px-4">
+              Continue <i class="bi bi-arrow-right ms-1"></i>
+            </button>
+            <button type="button" id="btnCheckoutSubmit" class="btn btn-velora-primary btn-sm px-4" style="display: none;">
+              Complete Purchase
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. ORDER CONFIRMATION SUCCESS MODAL -->
+  <div class="modal fade" id="orderSuccessModal" tabindex="-1" aria-labelledby="orderSuccessModalLabel" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 rounded-4 text-center p-4">
+        
+        <div class="order-success-icon-box">
+          <i class="bi bi-check-lg"></i>
+        </div>
+
+        <h3 class="font-editorial mb-1">Order Confirmed</h3>
+        <p class="text-muted fs-7 mb-3">Thank you for curating your wardrobe with VÉLORA Atelier.</p>
+
+        <!-- Printable Order Receipt -->
+        <div class="receipt-card text-start">
+          <div class="d-flex justify-content-between border-bottom pb-2 mb-2">
+            <span class="text-muted">Order Reference:</span>
+            <strong id="confirmOrderId" class="font-monospace text-dark">ORD-000000</strong>
+          </div>
+          <div class="d-flex justify-content-between border-bottom pb-2 mb-2">
+            <span class="text-muted">Date:</span>
+            <span id="confirmOrderDate">-</span>
+          </div>
+          <div class="d-flex justify-content-between border-bottom pb-2 mb-2">
+            <span class="text-muted">Customer:</span>
+            <span id="confirmCustomerName" class="fw-semibold">-</span>
+          </div>
+          <div class="d-flex justify-content-between border-bottom pb-2 mb-2">
+            <span class="text-muted">Delivery Address:</span>
+            <span id="confirmCustomerAddress" class="text-end">-</span>
+          </div>
+          <div class="mb-2">
+            <span class="text-muted d-block mb-1">Purchased Garments:</span>
+            <div id="confirmItemsList" class="ps-2 fs-8 text-secondary"></div>
+          </div>
+          <div class="d-flex justify-content-between pt-2 border-top fw-bold fs-6">
+            <span>Total Paid:</span>
+            <span id="confirmOrderTotal" class="text-dark">$0.00</span>
+          </div>
+        </div>
+
+        <div class="d-flex gap-2 justify-content-center mt-3">
+          <button type="button" id="btnPrintReceipt" class="btn btn-outline-dark btn-sm rounded-pill px-3">
+            <i class="bi bi-printer me-1"></i> Print Receipt
+          </button>
+          <button type="button" class="btn btn-velora-primary btn-sm px-4" data-bs-dismiss="modal">
+            Continue Exploring
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. MOBILE NAVIGATION OFFCANVAS -->
+  <div class="offcanvas offcanvas-start offcanvas-custom" tabindex="-1" id="offcanvasMobileNav" aria-labelledby="offcanvasMobileNavLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title font-editorial" id="offcanvasMobileNavLabel">VÉLORA ATELIER</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="list-unstyled d-flex flex-column gap-3 fs-6">
+        <li><a href="#" class="nav-cat-link fw-semibold" data-category="all" data-bs-dismiss="offcanvas">All Garments</a></li>
+        <li><a href="#" class="nav-cat-link text-muted" data-category="outerwear" data-bs-dismiss="offcanvas">Outerwear & Coats</a></li>
+        <li><a href="#" class="nav-cat-link text-muted" data-category="tops" data-bs-dismiss="offcanvas">Tops & Heavyweight Hoodies</a></li>
+        <li><a href="#" class="nav-cat-link text-muted" data-category="knitwear" data-bs-dismiss="offcanvas">Pure Cashmere Knitwear</a></li>
+        <li><a href="#" class="nav-cat-link text-muted" data-category="trousers" data-bs-dismiss="offcanvas">Tailored Pleated Trousers</a></li>
+        <li><a href="#" class="nav-cat-link text-muted" data-category="accessories" data-bs-dismiss="offcanvas">Full-Grain Accessories</a></li>
+      </ul>
+      <div class="border-top pt-4 mt-4">
+        <div class="fs-8 text-muted mb-2">CURRENCY</div>
+        <select class="form-select form-select-sm" onchange="document.getElementById('currencySelector').value = this.value; document.getElementById('currencySelector').dispatchEvent(new Event('change'));">
+          <option value="USD">USD ($)</option>
+          <option value="EUR">EUR (€)</option>
+          <option value="GBP">GBP (£)</option>
+          <option value="INR">INR (₹)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7.5 MOBILE FILTERS OFFCANVAS -->
+  <div class="offcanvas offcanvas-bottom offcanvas-custom h-75" tabindex="-1" id="offcanvasFilters" aria-labelledby="offcanvasFiltersLabel">
+    <div class="offcanvas-header border-bottom">
+      <h5 class="offcanvas-title font-editorial fs-6" id="offcanvasFiltersLabel"><i class="bi bi-sliders me-2"></i> Refine Wardrobe</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-4">
+      <div class="mb-4">
+        <div class="fw-bold fs-7 text-uppercase mb-2">Department</div>
+        <div class="d-flex gap-3 fs-7">
+          <label class="d-flex align-items-center gap-1 cursor-pointer">
+            <input type="radio" name="filterGenderMobile" value="all" checked onchange="document.querySelector('input[name=filterGender][value=all]').checked=true; document.querySelector('input[name=filterGender][value=all]').dispatchEvent(new Event('change'));"> All
+          </label>
+          <label class="d-flex align-items-center gap-1 cursor-pointer">
+            <input type="radio" name="filterGenderMobile" value="men" onchange="document.querySelector('input[name=filterGender][value=men]').checked=true; document.querySelector('input[name=filterGender][value=men]').dispatchEvent(new Event('change'));"> Men
+          </label>
+          <label class="d-flex align-items-center gap-1 cursor-pointer">
+            <input type="radio" name="filterGenderMobile" value="women" onchange="document.querySelector('input[name=filterGender][value=women]').checked=true; document.querySelector('input[name=filterGender][value=women]').dispatchEvent(new Event('change'));"> Women
+          </label>
+        </div>
+      </div>
+      <div class="mb-4">
+        <div class="fw-bold fs-7 text-uppercase mb-2">Sizes</div>
+        <div class="d-flex flex-wrap gap-2">
+          <button type="button" class="size-chip-btn" onclick="document.querySelector('.filter-size-btn[data-size=XS]').click();">XS</button>
+          <button type="button" class="size-chip-btn" onclick="document.querySelector('.filter-size-btn[data-size=S]').click();">S</button>
+          <button type="button" class="size-chip-btn" onclick="document.querySelector('.filter-size-btn[data-size=M]').click();">M</button>
+          <button type="button" class="size-chip-btn" onclick="document.querySelector('.filter-size-btn[data-size=L]').click();">L</button>
+          <button type="button" class="size-chip-btn" onclick="document.querySelector('.filter-size-btn[data-size=XL]').click();">XL</button>
+        </div>
+      </div>
+      <button class="btn btn-velora-primary w-100" data-bs-dismiss="offcanvas">Apply Filters</button>
+    </div>
+  </div>
+
+  <!-- 7.8 ATELIER STUDIO: ADD GARMENT MODAL (Local Upload + SQLite3) -->
+  <div class="modal fade modal-custom" id="modalAddGarment" tabindex="-1" aria-labelledby="modalAddGarmentLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0">
+        
+        <div class="modal-header border-bottom px-4 py-3">
+          <h5 class="modal-title font-editorial fs-5" id="modalAddGarmentLabel">
+            <i class="bi bi-plus-circle me-2 text-warning"></i> Atelier Studio — Add New Garment
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <form id="formAddGarment">
+          <div class="modal-body p-4">
+            <div class="row g-3">
+              
+              <div class="col-md-7">
+                <label class="form-label fs-8 fw-semibold">Garment Title *</label>
+                <input type="text" id="newGarmentName" class="form-control form-control-sm rounded-3" placeholder="e.g. Double-Faced Cashmere Trench" required>
+              </div>
+
+              <div class="col-md-5">
+                <label class="form-label fs-8 fw-semibold">Category *</label>
+                <select id="newGarmentCategory" class="form-select form-select-sm rounded-3" required>
+                  <option value="outerwear">Outerwear & Coats</option>
+                  <option value="tops">Tops & Shirts</option>
+                  <option value="knitwear">Cashmere & Knitwear</option>
+                  <option value="trousers">Tailored Trousers</option>
+                  <option value="accessories">Accessories</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label fs-8 fw-semibold">Tagline / Silhouette Note</label>
+                <input type="text" id="newGarmentTagline" class="form-control form-control-sm rounded-3" placeholder="e.g. 520 GSM pure Italian virgin wool with horn buttons">
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label fs-8 fw-semibold">Price ($ USD) *</label>
+                <input type="number" id="newGarmentPrice" class="form-control form-control-sm rounded-3" placeholder="240" min="1" step="0.01" required>
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label fs-8 fw-semibold">Original Price (for Sale badge)</label>
+                <input type="number" id="newGarmentOrigPrice" class="form-control form-control-sm rounded-3" placeholder="290" min="1" step="0.01">
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label fs-8 fw-semibold">Department *</label>
+                <select id="newGarmentGender" class="form-select form-select-sm rounded-3" required>
+                  <option value="unisex">Gender Neutral</option>
+                  <option value="men">Men's Edit</option>
+                  <option value="women">Women's Edit</option>
+                </select>
+              </div>
+
+              <!-- Local Upload Folder Image Input -->
+              <div class="col-12">
+                <label class="form-label fs-8 fw-semibold">
+                  <i class="bi bi-cloud-arrow-up me-1"></i> Garment Image (Saved to Local uploads/ folder) *
+                </label>
+                <input type="file" id="newGarmentFile" class="form-control form-control-sm rounded-3" accept="image/jpeg,image/png,image/webp,image/avif" required>
+                <div class="fs-9 text-muted mt-1">Uploads will be saved locally to <code>/uploads/</code> and linked directly to SQLite3.</div>
+              </div>
+
+              <!-- Available Sizes Checkboxes -->
+              <div class="col-md-6">
+                <label class="form-label fs-8 fw-semibold d-block">Available Sizes</label>
+                <div class="d-flex gap-2">
+                  <label class="form-check-label fs-8"><input type="checkbox" class="form-check-input new-size-check" value="XS"> XS</label>
+                  <label class="form-check-label fs-8"><input type="checkbox" class="form-check-input new-size-check" value="S" checked> S</label>
+                  <label class="form-check-label fs-8"><input type="checkbox" class="form-check-input new-size-check" value="M" checked> M</label>
+                  <label class="form-check-label fs-8"><input type="checkbox" class="form-check-input new-size-check" value="L" checked> L</label>
+                  <label class="form-check-label fs-8"><input type="checkbox" class="form-check-input new-size-check" value="XL"> XL</label>
+                </div>
+              </div>
+
+              <!-- Color definition -->
+              <div class="col-md-6">
+                <label class="form-label fs-8 fw-semibold">Primary Color Name & Hex</label>
+                <div class="input-group input-group-sm">
+                  <input type="text" id="newGarmentColorName" class="form-control rounded-start-3" placeholder="Onyx Black" value="Onyx Black">
+                  <input type="color" id="newGarmentColorHex" class="form-control form-control-color rounded-end-3" value="#111111" title="Choose color">
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label fs-8 fw-semibold">Fabric & Textile Specs</label>
+                <input type="text" id="newGarmentFabric" class="form-control form-control-sm rounded-3" placeholder="e.g. 100% Extrafine Merino Wool (420 GSM)">
+              </div>
+
+              <div class="col-12">
+                <label class="form-label fs-8 fw-semibold">Description</label>
+                <textarea id="newGarmentDesc" rows="3" class="form-control form-control-sm rounded-3" placeholder="Describe craftsmanship, drape, and styling details..."></textarea>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="modal-footer border-top px-4 py-3 d-flex justify-content-between">
+            <span class="fs-9 text-muted"><i class="bi bi-database me-1"></i> Saved to SQLite3 DB</span>
+            <div class="d-flex gap-2">
+              <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" id="btnSubmitNewGarment" class="btn btn-sm btn-velora-primary px-4">
+                <i class="bi bi-upload me-1"></i> Upload & Publish
+              </button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. TOAST NOTIFICATIONS CONTAINER -->
+  <div id="toastContainer" class="toast-container-custom"></div>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT LIBRARIES & MODULAR DECOUPLED SCRIPTS                          -->
+  <!-- ========================================================================= -->
+
+  <!-- Bootstrap 5 JS Bundle CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Decoupled Client Modules -->
+  <script src="js/mockData.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
